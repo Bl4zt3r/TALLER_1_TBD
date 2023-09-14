@@ -34,6 +34,150 @@ VALUES
 ('19789012-3', 'Valentina', 'Santos', 'valentina.santos@hotmail.com', 'SecurePass12345', '1977-10-16', 'Boliviano'),
 ('20890123-4', 'Héctor', 'Vargas', 'hector.vargas@yahoo.com', 'Password12345Secure', '2005-12-23', 'Paraguayo');
 
+
+
+INSERT INTO Vuelo (id_vuelo, paisOrigen, paisDestino)
+VALUES
+    (101, 'Chile', 'Argentina'),
+    (102, 'México', 'España'),   
+    (103, 'Argentina', 'Chile'),
+    (104, 'España', 'México'),
+    (105, 'Colombia', 'Perú'),
+    (106, 'Perú', 'Colombia'),
+    (107, 'Venezuela', 'Ecuador'),
+    (108, 'Ecuador', 'Venezuela'),
+    (109, 'Bolivia', 'Uruguay'),
+    (110, 'Uruguay', 'Bolivia');
+
+INSERT INTO Compania (id_compania, nombre)
+VALUES
+    (1, 'Aerolíneas Chile'),
+    (2, 'Argentina Airways'),
+    (3, 'Avianca'),
+    (4, 'PeruAir'),
+    (5, 'Venezuela Airlines'),
+    (6, 'EcuAir'),
+    (7, 'Bolivia Airlines'),
+    (8, 'Paraguay Airways'),
+    (9, 'Airlines Latam'),
+    (10, 'unicornio feliz');
+
+INSERT INTO Modelo (id_modelo, nombre)
+VALUES
+    (1, 'Boeing 737'),
+    (2, 'Airbus A320'),
+    (3, 'Boeing 787'),
+    (4, 'Airbus A350'),
+    (5, 'Embraer E190'),
+    (6, 'Bombardier CRJ900'),
+    (7, 'Airbus A330'),
+    (8, 'Boeing 777'),
+    (9, 'Embraer E175'),
+    (10, 'Airbus A380');
+
+INSERT INTO Avion (Patente, capacidad, tipo, fechaFabricacion, id_modelo, id_compania)
+VALUES
+    ('CC-ABC', 150, 'Avión Comercial', '2015-04-10', 1, 1),
+    ('MX-123', 180, 'Avión Comercial', '2016-02-15', 2, 2),
+    ('AR-456', 200, 'Avión Comercial', '2017-07-20', 3, 3),
+    ('ES-789', 250, 'Avión Comercial', '2018-05-30', 4, 4),
+    ('CO-234', 120, 'Avión Regional', '2019-09-25', 5, 5),
+    ('PE-567', 90, 'Avión Regional', '2020-11-12', 6, 6),
+    ('VE-890', 180, 'Avión Comercial', '2016-08-18', 7, 7),
+    ('EC-901', 200, 'Avión Comercial', '2017-03-05', 8, 8),
+    ('BO-123', 150, 'Avión Comercial', '2018-12-15', 9, 9),
+    ('UY-456', 250, 'Avión Comercial', '2019-06-28', 10, 10);
+
+
+
+
+INSERT INTO Seccion (id_seccion, nombre, descripcion)
+VALUES
+    (1, 'Económica', 'Asientos económicos con espacio estándar'),
+    (2, 'Ejecutiva', 'Asientos de mayor comodidad y servicio'),
+    (3, 'Primera Clase', 'Máximo lujo y comodidad'),
+    (4, 'Económica', 'Asientos económicos con espacio estándar'),
+    (5, 'Ejecutiva', 'Asientos de mayor comodidad y servicio'),
+    (6, 'Primera Clase', 'Máximo lujo y comodidad'),
+    (7, 'Económica', 'Asientos económicos con espacio estándar'),
+    (8, 'Ejecutiva', 'Asientos de mayor comodidad y servicio'),
+    (9, 'Primera Clase', 'Máximo lujo y comodidad'),
+    (10, 'Económica', 'Asientos económicos con espacio estándar');
+
+
+INSERT INTO Costo (id_costo, monto)
+VALUES
+    (1, 300),
+    (2, 500),
+    (3, 800),
+    (4, 350),
+    (5, 600),
+    (6, 900),
+    (7, 320),
+    (8, 520),
+    (9, 850),
+    (10, 310);
+
+INSERT INTO Sueldo (id_sueldo, monto, mes, ano)
+VALUES
+    (1, 4500, 9, 2023),
+    (2, 5200, 9, 2023),
+    (3, 6000, 9, 2023),
+    (4, 4800, 9, 2023),
+    (5, 5500, 9, 2023),
+    (6, 6200, 9, 2023),
+    (7, 4600, 9, 2023),
+    (8, 5300, 9, 2023),
+    (9, 6100, 9, 2023),
+    (10, 4700, 9, 2023);
+
+INSERT INTO Empleado (id_empleado, nombre, cargo, id_sueldo)
+VALUES
+    (1, 'Alejandro Torres', 'Piloto', 1),
+    (2, 'Laura Martínez', 'Azafata', 2),
+    (3, 'Carlos López', 'Azafato', 3),
+    (4, 'Andrea Ramírez', 'Piloto', 4),
+    (5, 'Javier Rodríguez', 'Azafata', 5),
+    (6, 'Ana Gómez', 'Azafata', 6),
+    (7, 'Luis Hernández', 'Piloto', 7),
+    (8, 'María González', 'Azafata', 8),
+    (9, 'Pablo Sánchez', 'Azafato', 9),
+    (10, 'Sofía Fernández', 'Piloto', 10);
+
+INSERT INTO Pasaje (id_pasaje, fechaPasaje, fechaInicio, fechaLlegada, id_seccion, id_vuelo, id_costo)
+VALUES (1, '2023-09-01', '2023-09-02', '2023-09-03', 1, 101, 1),
+       (2, '2023-09-02', '2023-09-03', '2023-09-04', 2, 102, 2),
+       (3, '2023-09-03', '2023-09-04', '2023-09-05', 3, 103, 3),
+       (4, '2023-09-04', '2023-09-05', '2023-09-06', 4, 104, 4),
+       (5, '2023-09-05', '2023-09-06', '2023-09-07', 5, 105, 5),
+       (6, '2023-09-06', '2023-09-07', '2023-09-08', 6, 106, 6),
+       (7, '2023-09-07', '2023-09-08', '2023-09-09', 7, 107, 7),
+       (8, '2023-09-08', '2023-09-09', '2023-09-10', 8, 108, 8),
+       (9, '2023-09-09', '2023-09-10', '2023-09-11', 9, 109, 9),
+       (10, '2023-09-10', '2023-09-11', '2023-09-12', 10, 110, 10),
+       (11, '2023-09-01', '2023-09-02', '2023-09-03', 1, 101, 1),
+        (12, '2024-06-15', '2024-06-16', '2024-06-17', 2, 102, 2),
+        (13, '2025-03-28', '2025-03-29', '2025-03-30', 3, 103, 3),
+        (14, '2026-02-10', '2026-02-11', '2026-02-12', 4, 104, 4),
+        (15, '2027-09-05', '2027-09-06', '2027-09-07', 5, 105, 5),
+        (16, '2028-12-20', '2028-12-21', '2028-12-22', 6, 106, 6),
+        (17, '2029-08-02', '2029-08-03', '2029-08-04', 7, 107, 7),
+        (18, '2030-05-15', '2030-05-16', '2030-05-17', 8, 108, 8),
+        (19, '2031-10-29', '2031-10-30', '2031-10-31', 9, 109, 9),
+        (20, '2032-07-12', '2032-07-13', '2032-07-14', 10, 110, 10),
+        (21, '2033-04-25', '2033-04-26', '2033-04-27', 1, 101, 1),
+        (22, '2034-09-08', '2034-09-09', '2034-09-10', 2, 102, 2),
+        (23, '2035-12-21', '2035-12-22', '2035-12-23', 3, 103, 3),
+        (24, '2036-08-04', '2036-08-05', '2036-08-06', 4, 104, 4),
+        (25, '2037-02-17', '2037-02-18', '2037-02-19', 5, 105, 5),
+        (26, '2038-11-01', '2038-11-02', '2038-11-03', 6, 106, 6),
+        (27, '2039-07-16', '2039-07-17', '2039-07-18', 7, 107, 7),
+        (28, '2040-04-29', '2040-04-30', '2040-05-01', 8, 108, 8),
+        (29, '2041-12-12', '2041-12-13', '2041-12-14', 9, 109, 9),
+        (30, '2042-09-25', '2042-09-26', '2042-09-27', 10, 110, 10);
+
+
+
 INSERT INTO Cliente_Vuelo (rut, id_vuelo)
 VALUES
     ('22345678-9', 101),
@@ -84,16 +228,7 @@ VALUES
 
 
 
-INSERT INTO Compania (id_compania, nombre)
-VALUES
-    (1, 'Aerolíneas Chile'),
-    (2, 'Argentina Airways'),
-    (3, 'Avianca'),
-    (4, 'PeruAir'),
-    (5, 'Venezuela Airlines'),
-    (6, 'EcuAir'),
-    (7, 'Bolivia Airlines'),
-    (8, 'Paraguay Airways');
+
 
 INSERT INTO Cliente_Compania (id_compania, rut)
 VALUES
@@ -130,44 +265,8 @@ VALUES
 (7,'19789012-3'),
 (8,'20890123-4');
 
-INSERT INTO Vuelo (id_vuelo, paisOrigen, paisDestino)
-VALUES
-    (101, 'Chile', 'Argentina'),
-    (102, 'México', 'España'),   
-    (103, 'Argentina', 'Chile'),
-    (104, 'España', 'México'),
-    (105, 'Colombia', 'Perú'),
-    (106, 'Perú', 'Colombia'),
-    (107, 'Venezuela', 'Ecuador'),
-    (108, 'Ecuador', 'Venezuela'),
-    (109, 'Bolivia', 'Uruguay'),
-    (110, 'Uruguay', 'Bolivia');
 
-INSERT INTO Modelo (id_modelo, nombre)
-VALUES
-    (1, 'Boeing 737'),
-    (2, 'Airbus A320'),
-    (3, 'Boeing 787'),
-    (4, 'Airbus A350'),
-    (5, 'Embraer E190'),
-    (6, 'Bombardier CRJ900'),
-    (7, 'Airbus A330'),
-    (8, 'Boeing 777'),
-    (9, 'Embraer E175'),
-    (10, 'Airbus A380');
 
-INSERT INTO Avion (Patente, capacidad, tipo, fechaFabricacion, id_modelo, id_compania)
-VALUES
-    ('CC-ABC', 150, 'Avión Comercial', '2015-04-10', 1, 1),
-    ('MX-123', 180, 'Avión Comercial', '2016-02-15', 2, 2),
-    ('AR-456', 200, 'Avión Comercial', '2017-07-20', 3, 3),
-    ('ES-789', 250, 'Avión Comercial', '2018-05-30', 4, 4),
-    ('CO-234', 120, 'Avión Regional', '2019-09-25', 5, 5),
-    ('PE-567', 90, 'Avión Regional', '2020-11-12', 6, 6),
-    ('VE-890', 180, 'Avión Comercial', '2016-08-18', 7, 7),
-    ('EC-901', 200, 'Avión Comercial', '2017-03-05', 8, 8),
-    ('BO-123', 150, 'Avión Comercial', '2018-12-15', 9, 9),
-    ('UY-456', 250, 'Avión Comercial', '2019-06-28', 10, 10);
 
 INSERT INTO Avion_Vuelo (patente, id_vuelo)
 VALUES
@@ -195,128 +294,40 @@ VALUES
     (9, 109),
     (10, 110);
 
-INSERT INTO Seccion (id_seccion, nombre, descripcion)
-VALUES
-    (1, 'Económica', 'Asientos económicos con espacio estándar'),
-    (2, 'Ejecutiva', 'Asientos de mayor comodidad y servicio'),
-    (3, 'Primera Clase', 'Máximo lujo y comodidad'),
-    (4, 'Económica', 'Asientos económicos con espacio estándar'),
-    (5, 'Ejecutiva', 'Asientos de mayor comodidad y servicio'),
-    (6, 'Primera Clase', 'Máximo lujo y comodidad'),
-    (7, 'Económica', 'Asientos económicos con espacio estándar'),
-    (8, 'Ejecutiva', 'Asientos de mayor comodidad y servicio'),
-    (9, 'Primera Clase', 'Máximo lujo y comodidad'),
-    (10, 'Económica', 'Asientos económicos con espacio estándar');
 
-INSERT INTO Costo (id_costo, monto)
-VALUES
-    (1, 300),
-    (2, 500),
-    (3, 800),
-    (4, 350),
-    (5, 600),
-    (6, 900),
-    (7, 320),
-    (8, 520),
-    (9, 850),
-    (10, 310);
 
-INSERT INTO Sueldo (id_sueldo, monto, mes, ano)
-VALUES
-    (1, 4500, 9, 2023),
-    (2, 5200, 9, 2023),
-    (3, 6000, 9, 2023),
-    (4, 4800, 9, 2023),
-    (5, 5500, 9, 2023),
-    (6, 6200, 9, 2023),
-    (7, 4600, 9, 2023),
-    (8, 5300, 9, 2023),
-    (9, 6100, 9, 2023),
-    (10, 4700, 9, 2023);
-
-INSERT INTO Empleado (id_empleado, nombre, cargo, id_sueldo)
-VALUES
-    (1, 'Alejandro Torres', 'Piloto', 1),
-    (2, 'Laura Martínez', 'Azafata', 2),
-    (3, 'Carlos López', 'Azafato', 3),
-    (4, 'Andrea Ramírez', 'Piloto', 4),
-    (5, 'Javier Rodríguez', 'Azafata', 5),
-    (6, 'Ana Gómez', 'Azafata', 6),
-    (7, 'Luis Hernández', 'Piloto', 7),
-    (8, 'María González', 'Azafata', 8),
-    (9, 'Pablo Sánchez', 'Azafato', 9),
-    (10, 'Sofía Fernández', 'Piloto', 10);
-
-INSERT INTO Empledo_Vuelo(id_empleado, id_vuelo)
+INSERT INTO empleado_vuelo (id_empleado, id_vuelo)
 VALUES 
-    (101, 1),
-    (101, 2),
-    (101, 3),
-    (102, 4),
-    (102, 5),
-    (102, 9),
-    (103, 4),
-    (103, 5),
-    (103, 9),
-    (104, 10),
-    (104, 7),
-    (104, 8),
-    (105, 10),
-    (105, 9),
-    (105, 3),
-    (106, 5),
-    (106, 7),
-    (106, 9),
-    (107, 4),
-    (107, 9),
-    (107, 2),
-    (108, 1),
-    (108, 2),
-    (108, 3),
-    (109, 4),
-    (109, 5),
-    (109, 6),
-    (110, 2),
-    (110, 4),
-    (110, 5);
-
-
-
-
-
-INSERT INTO Pasaje (id_pasaje, fechaPasaje, fechaInicio, fechaLlegada, id_seccion, id_vuelo, id_costo)
-VALUES (1, '2023-09-01', '2023-09-02', '2023-09-03', 1, 101, 1),
-       (2, '2023-09-02', '2023-09-03', '2023-09-04', 2, 102, 2),
-       (3, '2023-09-03', '2023-09-04', '2023-09-05', 3, 103, 3),
-       (4, '2023-09-04', '2023-09-05', '2023-09-06', 4, 104, 4),
-       (5, '2023-09-05', '2023-09-06', '2023-09-07', 5, 105, 5),
-       (6, '2023-09-06', '2023-09-07', '2023-09-08', 6, 106, 6),
-       (7, '2023-09-07', '2023-09-08', '2023-09-09', 7, 107, 7),
-       (8, '2023-09-08', '2023-09-09', '2023-09-10', 8, 108, 8),
-       (9, '2023-09-09', '2023-09-10', '2023-09-11', 9, 109, 9),
-       (10, '2023-09-10', '2023-09-11', '2023-09-12', 10, 110, 10),
-       (11, '2023-09-01', '2023-09-02', '2023-09-03', 1, 101, 1),
-        (12, '2024-06-15', '2024-06-16', '2024-06-17', 2, 102, 2),
-        (13, '2025-03-28', '2025-03-29', '2025-03-30', 3, 103, 3),
-        (14, '2026-02-10', '2026-02-11', '2026-02-12', 4, 104, 4),
-        (15, '2027-09-05', '2027-09-06', '2027-09-07', 5, 105, 5),
-        (16, '2028-12-20', '2028-12-21', '2028-12-22', 6, 106, 6),
-        (17, '2029-08-02', '2029-08-03', '2029-08-04', 7, 107, 7),
-        (18, '2030-05-15', '2030-05-16', '2030-05-17', 8, 108, 8),
-        (19, '2031-10-29', '2031-10-30', '2031-10-31', 9, 109, 9),
-        (20, '2032-07-12', '2032-07-13', '2032-07-14', 10, 110, 10),
-        (21, '2033-04-25', '2033-04-26', '2033-04-27', 1, 101, 1),
-        (22, '2034-09-08', '2034-09-09', '2034-09-10', 2, 102, 2),
-        (23, '2035-12-21', '2035-12-22', '2035-12-23', 3, 103, 3),
-        (24, '2036-08-04', '2036-08-05', '2036-08-06', 4, 104, 4),
-        (25, '2037-02-17', '2037-02-18', '2037-02-19', 5, 105, 5),
-        (26, '2038-11-01', '2038-11-02', '2038-11-03', 6, 106, 6),
-        (27, '2039-07-16', '2039-07-17', '2039-07-18', 7, 107, 7),
-        (28, '2040-04-29', '2040-04-30', '2040-05-01', 8, 108, 8),
-        (29, '2041-12-12', '2041-12-13', '2041-12-14', 9, 109, 9),
-        (30, '2042-09-25', '2042-09-26', '2042-09-27', 10, 110, 10);
-
-
+    (1, 101),
+    (2, 101),
+    (3, 101),
+    (4, 102),
+    (5, 102),
+    (9, 102),
+    (4, 103),
+    (5, 103),
+    (9, 103),
+    (10, 104),
+    (7, 104),
+    (8, 104),
+    (10, 105),
+    (9, 105),
+    (3, 105),
+    (5, 106),
+    (7, 106),
+    (9, 106),
+    (4, 107),
+    (9, 107),
+    (2, 107),
+    (1, 108),
+    (2, 108),
+    (3, 108),
+    (4, 109),
+    (5, 109),
+    (6, 109),
+    (2, 110),
+    (4, 110),
+    (5, 110);
 
 
 
