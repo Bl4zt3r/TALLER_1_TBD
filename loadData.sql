@@ -34,6 +34,9 @@ VALUES
 ('19789012-3', 'Valentina', 'Santos', 'valentina.santos@hotmail.com', 'SecurePass12345', '1977-10-16', 'Boliviano'),
 ('20890123-4', 'Héctor', 'Vargas', 'hector.vargas@yahoo.com', 'Password12345Secure', '2005-12-23', 'Paraguayo');
 
+INSERT INTO Cliente_Vuelo (rut, id_vuelo)
+VALUES();
+
 INSERT INTO Compania (id_compania, nombre)
 VALUES
     (1, 'Aerolíneas Chile'),
@@ -47,7 +50,7 @@ VALUES
 
 INSERT INTO Cliente_Compania (id_compania, rut)
 VALUES
-    ('22345678-9'),
+    (1,'22345678-9'),
 (1,'13456789-0'),
 (1,'14567890-1'),
 (1,'15678901-2'),
@@ -80,19 +83,19 @@ VALUES
 (7,'19789012-3'),
 (8,'20890123-4');
 
---Falta modificar, reemplazar los rut existentes y agregar mas vuelos -- 
-INSERT INTO Vuelo (id_vuelo, paisOrigen, paisDestino, rut)
+INSERT INTO Vuelo (id_vuelo, paisOrigen, paisDestino)
 VALUES
-    (101, 'Chile', 'Argentina', '1234567890'),
-    (102, 'México', 'España', '2345678901'),
-    (103, 'Argentina', 'Chile', '3456789012'),
-    (104, 'España', 'México', '4567890123'),
-    (105, 'Colombia', 'Perú', '5678901234'),
-    (106, 'Perú', 'Colombia', '6789012345'),
-    (107, 'Venezuela', 'Ecuador', '7890123456'),
-    (108, 'Ecuador', 'Venezuela', '8901234567'),
-    (109, 'Bolivia', 'Uruguay', '9012345678'),
-    (110, 'Uruguay', 'Bolivia', '0123456789');
+    (101, 'Chile', 'Argentina'),
+    (102, 'México', 'España'),   
+    (103, 'Argentina', 'Chile'),
+    (103, 'Argentina', 'Chile'),
+    (104, 'España', 'México'),
+    (105, 'Colombia', 'Perú'),
+    (106, 'Perú', 'Colombia'),
+    (107, 'Venezuela', 'Ecuador'),
+    (108, 'Ecuador', 'Venezuela'),
+    (109, 'Bolivia', 'Uruguay'),
+    (110, 'Uruguay', 'Bolivia');
 
 INSERT INTO Modelo (id_modelo, nombre)
 VALUES
@@ -106,6 +109,11 @@ VALUES
     (8, 'Boeing 777'),
     (9, 'Embraer E175'),
     (10, 'Airbus A380');
+
+INSERT INTO Pasaje (id_pasaje, fechaPasaje, paisOrigen, paisDestino, 
+fechaInicio, fechaLlegada, id_seccion, id_vuelo, id_costo) VALUES
+();
+
 
 INSERT INTO Avion (Patente, capacidad, tipo, fechaFabricacion, id_modelo, id_compania)
 VALUES
@@ -185,18 +193,21 @@ VALUES
     (9, 6100, 9, 2023),
     (10, 4700, 9, 2023);
 
-INSERT INTO Empleado (id_empleado, nombre, cargo, id_vuelo, id_sueldo)
+INSERT INTO Empleado (id_empleado, nombre, cargo, id_sueldo)
 VALUES
-    (1, 'Alejandro Torres', 'Piloto', 101, 1),
-    (2, 'Laura Martínez', 'Azafata', 101, 2),
-    (3, 'Carlos López', 'Azafato', 101, 3),
-    (4, 'Andrea Ramírez', 'Piloto', 102, 4),
-    (5, 'Javier Rodríguez', 'Azafata', 102, 5),
-    (6, 'Ana Gómez', 'Azafata', 102, 6),
-    (7, 'Luis Hernández', 'Piloto', 103, 7),
-    (8, 'María González', 'Azafata', 103, 8),
-    (9, 'Pablo Sánchez', 'Azafato', 103, 9),
-    (10, 'Sofía Fernández', 'Piloto', 104, 10);
+    (1, 'Alejandro Torres', 'Piloto', 1),
+    (2, 'Laura Martínez', 'Azafata', 2),
+    (3, 'Carlos López', 'Azafato', 3),
+    (4, 'Andrea Ramírez', 'Piloto', 4),
+    (5, 'Javier Rodríguez', 'Azafata', 5),
+    (6, 'Ana Gómez', 'Azafata', 6),
+    (7, 'Luis Hernández', 'Piloto', 7),
+    (8, 'María González', 'Azafata', 8),
+    (9, 'Pablo Sánchez', 'Azafato', 9),
+    (10, 'Sofía Fernández', 'Piloto', 10);
+
+INSERT INTO Empledo_Vuelo(id_empleado, id_vuelo)
+VALUES ();
 
 
 
