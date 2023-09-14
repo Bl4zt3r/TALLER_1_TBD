@@ -79,8 +79,6 @@ CREATE TABLE Modelo (
 CREATE TABLE Pasaje (
     id_pasaje serial PRIMARY KEY,
     fechaPasaje date,
-    paisOrigen varchar(100),
-    paisDestino varchar(100),
     fechaInicio date,
     fechaLlegada date,
     id_seccion int REFERENCES Seccion(id_seccion),
