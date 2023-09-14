@@ -1,122 +1,111 @@
-----------/Script de creacion de tablas/----------
--- Tabla Cliente
+-- Creación de la tabla Cliente
 CREATE TABLE Cliente (
-    rut VARCHAR(100) PRIMARY KEY,
-    nombre VARCHAR(100),
-    apellido VARCHAR(100),
-    correo VARCHAR(100),
-    contrasena VARCHAR(100),
-    fechaNacimiento DATE,
-    nacionalidad VARCHAR(100)
+    rut varchar(100) PRIMARY KEY,
+    nombre varchar(100),
+    apellido varchar(100),
+    correo varchar(100),
+    contrasena varchar(100),
+    fechaNacimiento date,
+    nacionalidad varchar(100)
 );
 
--- Tabla Compania
+-- Creación de la tabla Compania
 CREATE TABLE Compania (
-    id_compania INT PRIMARY KEY,
-    nombre VARCHAR(100)
+    id_compania serial PRIMARY KEY,
+    nombre varchar(100)
 );
 
--- Tabla Cliente_Compania (Tabla de relación muchos a muchos entre Cliente y Compania)
+-- Creación de la tabla Cliente_Compania
 CREATE TABLE Cliente_Compania (
-    id_compania INT,
-    rut VARCHAR(100),
-    PRIMARY KEY (id_compania, rut),
-    FOREIGN KEY (id_compania) REFERENCES Compania(id_compania),
-    FOREIGN KEY (rut) REFERENCES Cliente(rut)
+    id_compania int REFERENCES Compania(id_compania),
+    rut varchar(100) REFERENCES Cliente(rut)
 );
 
-
--- Tabla Vuelo
-CREATE TABLE Vuelo (
-    id_vuelo INT PRIMARY KEY,
-    paisOrigen VARCHAR(100),
-    paisDestino VARCHAR(100),
-    rut VARCHAR(100),
-    FOREIGN KEY (rut) REFERENCES Cliente(rut)
-);
-
--- Tabla Modelo
-CREATE TABLE Modelo (
-    id_modelo INT PRIMARY KEY,
-    nombre VARCHAR(100)
-);
-
--- Tabla Avion
-CREATE TABLE Avion (
-    Patente VARCHAR(100) PRIMARY KEY,
-    capacidad INT,
-    tipo VARCHAR(100),
-    fechaFabricacion DATE,
-    id_modelo INT,
-    id_compania INT,
-    FOREIGN KEY (id_modelo) REFERENCES Modelo(id_modelo),
-    FOREIGN KEY (id_compania) REFERENCES Compania(id_compania)
-);
-
--- Tabla Avion_Vuelo (Tabla de relación muchos a muchos entre Avion y Vuelo)
-CREATE TABLE Avion_Vuelo (
-    patente VARCHAR(100),
-    id_vuelo INT,
-    PRIMARY KEY (patente, id_vuelo),
-    FOREIGN KEY (patente) REFERENCES Avion(patente),
-    FOREIGN KEY (id_vuelo) REFERENCES Vuelo(id_vuelo)
-);
-
-
--- Tabla Compania_Vuelo (Tabla de relación muchos a muchos entre Compania y Vuelo)
-CREATE TABLE Compania_Vuelo (
-    id_compania INT,
-    id_vuelo INT,
-    PRIMARY KEY (id_compania, id_vuelo),
-    FOREIGN KEY (id_compania) REFERENCES Compania(id_compania),
-    FOREIGN KEY (id_vuelo) REFERENCES Vuelo(id_vuelo)
-);
-
--- Tabla Seccion
+-- Creación de la tabla Seccion
 CREATE TABLE Seccion (
-    id_seccion INT PRIMARY KEY,
-    nombre VARCHAR(100),
-    descripcion VARCHAR(100)
+    id_seccion serial PRIMARY KEY,
+    nombre varchar(100),
+    descripcion varchar(100)
 );
 
--- Tabla Costo
+-- Creación de la tabla Vuelo
+CREATE TABLE Vuelo (
+    id_vuelo serial PRIMARY KEY,
+    paisOrigen varchar(100),
+    paisDestino varchar(100)
+);
+
+-- Creación de la tabla Compania_Vuelo
+CREATE TABLE Compania_Vuelo (
+    id_compania int REFERENCES Compania(id_compania),
+    id_vuelo int REFERENCES Vuelo(id_vuelo)
+);
+
+-- Creación de la tabla Costo
 CREATE TABLE Costo (
-    id_costo INT PRIMARY KEY,
-    monto INT
+    id_costo serial PRIMARY KEY,
+    monto numeric(10, 2)
 );
 
-
--- Tabla Pasaje
-CREATE TABLE Pasaje (
-    id_pasaje INT PRIMARY KEY,
-    fechaPasaje DATE,
-    paisOrigen VARCHAR(100),
-    paisDestino VARCHAR(100),
-    fechaInicio DATE,
-    fechaLlegada DATE,
-    id_seccion INT,
-    id_vuelo INT,
-    id_costo INT,
-    FOREIGN KEY (id_seccion) REFERENCES Seccion(id_seccion),
-    FOREIGN KEY (id_vuelo) REFERENCES Vuelo(id_vuelo),
-    FOREIGN KEY (id_costo) REFERENCES Costo(id_costo)
-);
-
--- Tabla Sueldo
+-- Creación de la tabla Sueldo
 CREATE TABLE Sueldo (
-    id_sueldo INT PRIMARY KEY,
-    monto INT,
-    mes INT,
-    ano INT
+    id_sueldo serial PRIMARY KEY,
+    monto numeric(10, 2),
+    mes int,
+    ano int
 );
 
--- Tabla Empleado
+-- Creación de la tabla Empleado
 CREATE TABLE Empleado (
-    id_empleado INT PRIMARY KEY,
-    nombre VARCHAR(100),
-    cargo VARCHAR(100),
-    id_vuelo INT,
-    id_sueldo INT,
-    FOREIGN KEY (id_vuelo) REFERENCES Vuelo(id_vuelo),
-    FOREIGN KEY (id_sueldo) REFERENCES Sueldo(id_sueldo)
+    id_empleado serial PRIMARY KEY,
+    nombre varchar(100),
+    cargo varchar(100),
+    id_sueldo int REFERENCES Sueldo(id_sueldo)
+);
+
+-- Creación de la tabla Empleado_Vuelo
+CREATE TABLE Empleado_Vuelo (
+    id_empleado int REFERENCES Empleado(id_empleado),
+    id_vuelo int REFERENCES Vuelo(id_vuelo)
+);
+
+-- Creación de la tabla Modelo
+CREATE TABLE Modelo (
+    id_modelo serial PRIMARY KEY,
+    nombre varchar(100)
+);
+
+-- Creación de la tabla Pasaje
+CREATE TABLE Pasaje (
+    id_pasaje serial PRIMARY KEY,
+    fechaPasaje date,
+    paisOrigen varchar(100),
+    paisDestino varchar(100),
+    fechaInicio date,
+    fechaLlegada date,
+    id_seccion int REFERENCES Seccion(id_seccion),
+    id_vuelo int REFERENCES Vuelo(id_vuelo),
+    id_costo int REFERENCES Costo(id_costo)
+);
+
+-- Creación de la tabla Avion
+CREATE TABLE Avion (
+    patente varchar(100) PRIMARY KEY,
+    capacidad int,
+    tipo varchar(100),
+    fechaFabricacion date,
+    id_modelo int REFERENCES Modelo(id_modelo),
+    id_compania int REFERENCES Compania(id_compania)
+);
+
+-- Creación de la tabla Cliente_Vuelo
+CREATE TABLE Cliente_Vuelo (
+    rut varchar(100) REFERENCES Cliente(rut),
+    id_vuelo int REFERENCES Vuelo(id_vuelo)
+);
+
+-- Creación de la tabla Avion_Vuelo
+CREATE TABLE Avion_Vuelo (
+    patente varchar(100) REFERENCES Avion(patente),
+    id_vuelo int REFERENCES Vuelo(id_vuelo)
 );
