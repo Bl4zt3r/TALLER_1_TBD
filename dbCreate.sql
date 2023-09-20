@@ -84,7 +84,7 @@ CREATE TABLE Pasaje (
     id_seccion int REFERENCES Seccion(id_seccion),
     id_vuelo int REFERENCES Vuelo(id_vuelo),
     id_costo int REFERENCES Costo(id_costo),
-    rut REFERENCES Cliente(rut)
+    rut varchar(100) REFERENCES Cliente(rut)
 );
 
 -- Creación de la tabla Avion
