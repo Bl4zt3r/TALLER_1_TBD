@@ -1,10 +1,10 @@
 INSERT INTO Cliente (rut, nombre, apellido, correo, contrasena, fechaNacimiento, nacionalidad)
 VALUES
 ('22345678-9', 'Juan', 'Pérez', 'juan.perez@gmail.com', 'Password123', '1990-05-15', 'Chileno'),
-('13456789-0', 'María', 'González', 'maria.gonzalez@hotmail.com', 'SecurePass', '1985-08-22', 'Chileno'),
+('13456789-0', 'María', 'González', 'maria.gonzalez@hotmail.com', 'SecurePass', '1985-08-22', 'Argentino'),
 ('14567890-1', 'Pedro', 'Sánchez', 'pedro.sanchez@yahoo.com', 'Secret123', '1995-02-10', 'Chileno'),
 ('15678901-2', 'Ana', 'López', 'ana.lopez@gmail.com', 'Confidential', '1992-11-30', 'Chileno'),
-('16789012-3', 'Andrés', 'Fernández', 'andres.fernandez@yahoo.com', 'Pass1234', '1988-07-17', 'Chileno'),
+('16789012-3', 'Andrés', 'Fernández', 'andres.fernandez@yahoo.com', 'Pass1234', '1988-07-17', 'Argentino'),
 ('17890123-4', 'Carolina', 'Martínez', 'carolina.martinez@hotmail.com', 'PrivatePass', '1987-04-05', 'Chileno'),
 ('18901234-5', 'Javier', 'Rodríguez', 'javier.rodriguez@gmail.com', 'SecretPass123', '1991-09-18', 'Chileno'),
 ('19012345-6', 'Isabel', 'Gómez', 'isabel.gomez@hotmail.com', 'StrongPassword', '1993-03-25', 'Chileno'),
