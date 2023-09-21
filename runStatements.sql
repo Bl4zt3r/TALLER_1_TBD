@@ -26,6 +26,33 @@ GROUP BY s.nombre
 ORDER BY total_comprado DESC;
 
 
+-- pregunta 5
+
+
+SELECT a.*
+FROM avion a
+JOIN (
+    SELECT av.patente, COUNT(*) AS contador,
+           ROW_NUMBER() OVER (ORDER BY COUNT(*) ASC) AS row_num
+    FROM avion_vuelo av
+    JOIN pasaje p ON av.id_vuelo = p.id_vuelo
+    GROUP BY av.patente
+) AS R
+ON a.patente = R.patente
+WHERE R.row_num = 1;
+
+
+-- pregunta 6
+
+
+SELECT e.id_empleado, e.cargo, s.monto, s.mes, s.ano
+FROM empleado e
+JOIN sueldo s ON e.id_sueldo = s.id_sueldo
+WHERE e.cargo = 'Piloto'
+  AND s.ano >= EXTRACT (YEAR FROM CURRENT_DATE) - 4
+ORDER BY s.monto DESC, s.ano DESC, s.mes DESC;
+
+
 -- pregunta 8
 
 
