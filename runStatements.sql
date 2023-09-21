@@ -28,7 +28,7 @@ ORDER BY total_comprado DESC;
 
 ----------/Pregunta 3/----------
 SELECT
-    Pasaje.fechaPasaje AS Mes,
+    EXTRACT( MONTH FROM Pasaje.fechaPasaje) AS Mes,
     Vuelo.paisDestino AS Pais,
     SUM(Costo.monto) AS Total_Gastado
 FROM
@@ -55,7 +55,7 @@ JOIN
 JOIN
     Seccion ON Pasaje.id_seccion = Seccion.id_seccion
 WHERE
-    Seccion.nombre = 'Primera Clase' 
+    Seccion.nombre_seccion = 'Primera Clase' 
   AND DATE_PART('month', Pasaje.fechaInicio) = DATE_PART('month', Pasaje.fechaLlegada)
 GROUP BY
     Cliente.nombre_cliente
@@ -76,18 +76,18 @@ JOIN (
     GROUP BY av.patente
 ) AS R
 ON a.patente = R.patente
-WHERE R.row_num = 1;
+where R.row_num = 1;
 
 
 -- pregunta 6
-
 
 SELECT e.id_empleado, e.cargo, s.monto, s.mes, s.ano
 FROM empleado e
 JOIN sueldo s ON e.id_sueldo = s.id_sueldo
 WHERE e.cargo = 'Piloto'
   AND s.ano >= EXTRACT (YEAR FROM CURRENT_DATE) - 4
-ORDER BY s.monto DESC, s.ano DESC, s.mes DESC;
+ORDER BY s.monto DESC, s.ano DESC, s.mes DESC;
+
 
 
 -- pregunta 7
