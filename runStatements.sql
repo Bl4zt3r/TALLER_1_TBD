@@ -116,4 +116,4 @@ WHERE s.ano > EXTRACT (YEAR FROM CURRENT_DATE) - 10
 GROUP BY co.nombre, s.monto, s.ano
 ORDER BY co.nombre DESC) AS r1
 GROUP BY nombre, ano
-ORDER BY sum DESC;
+ORDER BY ano DESC;
