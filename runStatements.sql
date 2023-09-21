@@ -26,6 +26,43 @@ GROUP BY s.nombre
 ORDER BY total_comprado DESC;
 
 
+----------/Pregunta 3/----------
+SELECT
+    Pasaje.fechaPasaje AS Mes,
+    Vuelo.paisDestino AS Pais,
+    SUM(Costo.monto) AS Total_Gastado
+FROM
+    Pasaje
+JOIN
+    Vuelo ON Pasaje.id_vuelo = Vuelo.id_vuelo
+JOIN
+    Costo ON Pasaje.id_costo = Costo.id_costo
+WHERE
+    DATE_PART('year', Pasaje.fechaPasaje) >= (DATE_PART('year', CURRENT_DATE) - 4)
+GROUP BY
+    Pasaje.fechaPasaje, Vuelo.paisDestino
+ORDER BY
+    mes ASC;
+
+----------/Pregunta 4/----------
+SELECT DISTINCT
+    Cliente.nombre AS nombre,
+	COUNT(*) AS total
+FROM
+    Pasaje
+JOIN
+    Cliente ON Pasaje.rut = Cliente.rut
+JOIN
+    Seccion ON Pasaje.id_seccion = Seccion.id_seccion
+WHERE
+    Seccion.nombre = 'Primera Clase' 
+	AND DATE_PART('month', Pasaje.fechaInicio) = DATE_PART('month', Pasaje.fechaLlegada)
+GROUP BY
+    Cliente.nombre
+HAVING
+    COUNT(Pasaje.fechaInicio) > 4;
+
+
 -- pregunta 5
 
 
