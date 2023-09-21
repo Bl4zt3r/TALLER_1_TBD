@@ -27,22 +27,26 @@ ORDER BY total_comprado DESC;
 
 
 ----------/Pregunta 3/----------
-SELECT
-    EXTRACT( MONTH FROM Pasaje.fechaPasaje) AS Mes,
-    Vuelo.paisDestino AS Pais,
-    SUM(Costo.monto) AS Total_Gastado
-FROM
-    Pasaje
-JOIN
-    Vuelo ON Pasaje.id_vuelo = Vuelo.id_vuelo
-JOIN
-    Costo ON Pasaje.id_costo = Costo.id_costo
-WHERE
-    DATE_PART('year', Pasaje.fechaPasaje) >= (DATE_PART('year', CURRENT_DATE) - 4)
-GROUP BY
-    Pasaje.fechaPasaje, Vuelo.paisDestino
-ORDER BY
-    mes ASC;
+
+SELECT Mes, Pais, Total_Gastado
+FROM (
+    SELECT
+        EXTRACT(MONTH FROM Pasaje.fechaPasaje) AS Mes,
+        Vuelo.paisDestino AS Pais,
+        SUM(Costo.monto) AS Total_Gastado,
+        ROW_NUMBER() OVER (PARTITION BY EXTRACT(MONTH FROM Pasaje.fechaPasaje) ORDER BY SUM(Costo.monto) DESC) AS row_num
+    FROM
+        Pasaje
+    JOIN
+        Vuelo ON Pasaje.id_vuelo = Vuelo.id_vuelo
+    JOIN
+        Costo ON Pasaje.id_costo = Costo.id_costo
+    WHERE
+        DATE_PART('year', Pasaje.fechaPasaje) >= (DATE_PART('year', CURRENT_DATE) - 4)
+    GROUP BY
+        EXTRACT(MONTH FROM Pasaje.fechaPasaje), Vuelo.paisDestino
+) AS subquery
+WHERE row_num = 1;
 
 ----------/Pregunta 4/----------
 SELECT DISTINCT
@@ -144,6 +148,9 @@ GROUP BY co.nombre_compania, s.monto, s.ano
 ORDER BY co.nombre_compania DESC) AS r1
 GROUP BY nombre, ano
 ORDER BY ano DESC;
+
+
+
 
 -- Pregunta 10
 SELECT
