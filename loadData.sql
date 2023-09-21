@@ -1,4 +1,4 @@
-INSERT INTO Cliente (rut, nombre, apellido, correo, contrasena, fechaNacimiento, nacionalidad)
+INSERT INTO Cliente (rut, nombre_cliente, apellido, correo, contrasena, fechaNacimiento, nacionalidad)
 VALUES
 ('22345678-9', 'Juan', 'Pérez', 'juan.perez@gmail.com', 'Password123', '1990-05-15', 'Chileno'),
 ('13456789-0', 'María', 'González', 'maria.gonzalez@hotmail.com', 'SecurePass', '1985-08-22', 'Argentino'),
@@ -49,7 +49,7 @@ VALUES
     (109, 'Bolivia', 'Uruguay'),
     (110, 'Uruguay', 'Bolivia');
 
-INSERT INTO Compania (id_compania, nombre)
+INSERT INTO Compania (id_compania, nombre_compania)
 VALUES
     (1, 'Aerolíneas Chile'),
     (2, 'Argentina Airways'),
@@ -62,7 +62,7 @@ VALUES
     (9, 'Airlines Latam'),
     (10, 'unicornio feliz');
 
-INSERT INTO Modelo (id_modelo, nombre)
+INSERT INTO Modelo (id_modelo, nombre_modelo)
 VALUES
     (1, 'Boeing 737'),
     (2, 'Airbus A320'),
@@ -91,7 +91,7 @@ VALUES
 
 
 
-INSERT INTO Seccion (id_seccion, nombre, descripcion)
+INSERT INTO Seccion (id_seccion, nombre_seccion, descripcion)
 VALUES
     (1, 'Económica', 'Asientos económicos con espacio estándar'),
     (2, 'Ejecutiva', 'Asientos de mayor comodidad y servicio'),
@@ -125,7 +125,7 @@ VALUES
     (9, 6100, 9, 2023),
     (10, 4700, 9, 2023);
 
-INSERT INTO Empleado (id_empleado, nombre, cargo, id_sueldo)
+INSERT INTO Empleado (id_empleado, nombre_empleado, cargo, id_sueldo)
 VALUES
     (1, 'Alejandro Torres', 'Piloto', 1),
     (2, 'Laura Martínez', 'Azafata', 2),

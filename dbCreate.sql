@@ -1,7 +1,7 @@
 -- Creación de la tabla Cliente
 CREATE TABLE Cliente (
     rut varchar(100) PRIMARY KEY,
-    nombre varchar(100),
+    nombre_cliente varchar(100),
     apellido varchar(100),
     correo varchar(100),
     contrasena varchar(100),
@@ -12,7 +12,7 @@ CREATE TABLE Cliente (
 -- Creación de la tabla Compania
 CREATE TABLE Compania (
     id_compania serial PRIMARY KEY,
-    nombre varchar(100)
+    nombre_compania varchar(100)
 );
 
 -- Creación de la tabla Cliente_Compania
@@ -24,7 +24,7 @@ CREATE TABLE Cliente_Compania (
 -- Creación de la tabla Seccion
 CREATE TABLE Seccion (
     id_seccion serial PRIMARY KEY,
-    nombre varchar(100),
+    nombre_seccion varchar(100),
     descripcion varchar(100)
 );
 
@@ -58,7 +58,7 @@ CREATE TABLE Sueldo (
 -- Creación de la tabla Empleado
 CREATE TABLE Empleado (
     id_empleado serial PRIMARY KEY,
-    nombre varchar(100),
+    nombre_empleado varchar(100),
     cargo varchar(100),
     id_sueldo int REFERENCES Sueldo(id_sueldo)
 );
@@ -72,7 +72,7 @@ CREATE TABLE Empleado_Vuelo (
 -- Creación de la tabla Modelo
 CREATE TABLE Modelo (
     id_modelo serial PRIMARY KEY,
-    nombre varchar(100)
+    nombre_modelo varchar(100)
 );
 
 -- Creación de la tabla Pasaje
